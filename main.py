@@ -14,8 +14,7 @@ w.pack(pady=20, side= TOP, anchor="w")
 
 
 # define listbox and its contents
-# folder = 'C:\Models'
-folder = '/Users/biffbarry/Desktop/models'
+folder = 'C:\Models'
 
 
 
@@ -31,10 +30,8 @@ f.pack(fill='x')
 # get contents for text box
 def files_needed(event):
     folder_selected = listbox.get(listbox.curselection()[0])
-    # old_folder = f'C:\Models\{folder_selected}\OLD MODEL\WORK'
-    # new_folder = f'C:\Models\{folder_selected}\CURRENT MODEL\WORK'
-    old_folder = f'/Users/biffbarry/Desktop/models/{folder_selected}/OLD MODEL/WORK'
-    new_folder = f'/Users/biffbarry/Desktop/models/{folder_selected}/CURRENT MODEL/WORK'
+    old_folder = f'C:\Models\{folder_selected}\OLD MODEL\WORK'
+    new_folder = f'C:\Models\{folder_selected}\CURRENT MODEL\WORK'
 
     try:
         df  = files_potentially_missing(old_folder, new_folder)
