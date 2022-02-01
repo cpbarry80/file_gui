@@ -28,12 +28,10 @@ def files_potentially_missing(oldmodelpath, curmodelpath):
         max_value = max(all_values)
         problems.append([old_file_name, str(round(max_value, 2)), scores[max(all_values)][0]])
     ovn = pd.DataFrame(problems, columns = ['old model file', 'match_score', 'new model file']).sort_values(by=['match_score'])
+    ovn["unmatched files in current models work"] = pd.Series([i for i in files(curmodelpath) if i not in list(ovn["new model file"])])
     ovn.set_index('match_score')
     return ovn
 
 
-oldmodelpath = "C:\Models\Cedar Rapids\OLD MODEL\Work"
-curmodelpath = "C:\Models\Cedar Rapids\CURRENT MODEL\Work"
-ovn = files_potentially_missing(oldmodelpath, curmodelpath)
-print(ovn)
+
 
